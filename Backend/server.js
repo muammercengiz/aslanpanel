@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-const PORT = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors({
@@ -30,6 +30,6 @@ app.use("/api/hareketler", hareketRoutes);
 const personelRoute = require("./routes/personel");
 app.use("/api/personel", personelRoute);
 
-app.listen(PORT, () => {
-  console.log(`Server çalışıyor: http://localhost:${PORT}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server çalışıyor: http://localhost:${port}`);
 });
