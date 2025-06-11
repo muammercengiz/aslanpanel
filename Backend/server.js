@@ -1,12 +1,23 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
+
+
 
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cors({
+  origin: "https://aslanpanel-frontend.onrender.com", // frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
+
 
 // Basit test endpoint
 app.get("/", (req, res) => {
